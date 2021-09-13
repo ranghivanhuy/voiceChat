@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build application with NodeJS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/css/style.css" type="text/css">
+    <link rel="stylesheet" href="public/css/chatbox.css" type="text/css">
+</head>
+<body>
+    <div class="container">
+        <canvas id="canvas" width="1500" height="700"></canvas>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="footer">
+                <ul>
+                    <li>
+                        <button type="button" class="btn btn-primary" id="toggle-chat-pane">
+                            <i class="fa fa-comment"></i>
+                        </button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-primary microphone">
+                            <i class="fa fa-microphone" aria-hidden="true"></i>
+                        </button>
+                    </li>
+                    <li><button type="button" class="btn btn-primary"><i class="fa fa-list"></i></button></li>
+                    <li>
+                        <button type="button" class="btn btn-danger">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <section class="chatbox" hidden id="chatbox">
+                <header class="chatbox-header">
+                    <div class="chatbox-header-title">
+                        <i class="fas fa-comment-alt"></i> voiceChat
+                    </div>
+                    <div class="chatbox-header-options">
+                        <span><i class="fas fa-cog"></i></span>
+                    </div>
+                </header>
+              
+                <main class="chatbox-chat">
+                    <div class="msg left-msg">
+                        <div class="msg-img"
+                        style="background-image: url(https://image.flaticon.com/icons/svg/327/327779.svg)"
+                        ></div>
+                
+                        <div class="msg-bubble">
+                        <div class="msg-info">
+                            <div class="msg-info-name">BOT</div>
+                            <div class="msg-info-time">12:45</div>
+                        </div>
+                
+                        <div class="msg-text">
+                            Hi, welcome to SimpleChat! Go ahead and send me a message. 😄
+                        </div>
+                        </div>
+                    </div>
+                
+                    <div class="msg right-msg">
+                        <div
+                        class="msg-img"
+                        style="background-image: url(https://image.flaticon.com/icons/svg/145/145867.svg)"
+                        ></div>
+                
+                        <div class="msg-bubble">
+                        <div class="msg-info">
+                            <div class="msg-info-name">Sajad</div>
+                            <div class="msg-info-time">12:46</div>
+                        </div>
+                
+                        <div class="msg-text">
+                            You can change your name in JS section!
+                        </div>
+                        </div>
+                    </div>
+                </main>
+              
+                <div class="chat-messages"></div>
+                <input type="text" id="chat-input" class="form-control" placeholder="Enter your message...">
+            </section>
+            <section class="more-display">
+                <ul>
+                    <li></li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/7.3.0/adapter.min.js" integrity="sha256-2qQheewaqnZlXJ3RJRghVUwD/3fD9HNqxh4C+zvgmF4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.min.js'></script>
+    <script src='https://cdn.rawgit.com/yahoo/xss-filters/master/dist/xss-filters.js'></script>
+    <script src="public/js/main.js"></script>
+</body>
+</html>

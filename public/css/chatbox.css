@@ -10,6 +10,7 @@
     border-radius: 5px;
     background: var(--chatbox-bg);
     box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+    margin-left: 285px !important;
 }
 
 .chatbox-header {

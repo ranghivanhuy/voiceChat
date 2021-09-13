@@ -155,3 +155,16 @@ $('#toggle-chat-pane').on('click', () => {
         chatElem.classList.add('chat-opened');
     }
 });
+
+
+$('#btn-more').on('click', () => {
+    let chatElem = document.querySelector('#more-display');
+
+    if (chatElem.classList.contains('more-opened')) {
+        chatElem.setAttribute('hidden', true);
+        chatElem.classList.remove('more-opened');
+    } else {
+        chatElem.attributes.removeNamedItem('hidden');
+        chatElem.classList.add('more-opened');
+    }
+});

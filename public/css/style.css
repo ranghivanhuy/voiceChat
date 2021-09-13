@@ -30,6 +30,19 @@ li {
     /* background: rgb(66, 182, 13); */
 }
 
+.more-none-flex {
+    display: block;
+    background: black;
+    color: white;
+    border-radius: 15px;
+    padding: 0;
+}
+
+.more-none-flex li:hover {
+    background: #585555;
+    border-radius: 15px;
+}
+
 button {
     border-radius: 50% !important;
     width: 120%;
@@ -37,4 +50,10 @@ button {
 
 .microphone {
     width: 55px;
+}
+
+.more-display {
+    position: absolute;
+    bottom: 55px;
+    left: 72%;
 }

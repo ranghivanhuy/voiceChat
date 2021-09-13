@@ -29,7 +29,7 @@
                             <i class="fa fa-microphone" aria-hidden="true"></i>
                         </button>
                     </li>
-                    <li><button type="button" class="btn btn-primary"><i class="fa fa-list"></i></button></li>
+                    <li><button type="button" class="btn btn-primary" id="btn-more"><i class="fa fa-list"></i></button></li>
                     <li>
                         <button type="button" class="btn btn-danger">
                             <i class="fas fa-sign-out-alt"></i>
@@ -87,9 +87,23 @@
                 <div class="chat-messages"></div>
                 <input type="text" id="chat-input" class="form-control" placeholder="Enter your message...">
             </section>
-            <section class="more-display">
-                <ul>
-                    <li></li>
+            <section class="more-display" id="more-display" hidden>
+                <ul class="more-none-flex">
+                    <li>
+                        <i class="fas fa-video"> Record screen</i>
+                    </li>
+                    <li>
+                        <i class="fa fa-desktop"> Share screen</i>
+                    </li>
+                    <li>
+                        <i class="fab fa-youtube"> Youtube video</i>
+                    </li>
+                    <li>
+                        <i class="far fa-edit"> Editor</i>
+                    </li>
+                    <li>
+                        <i class="fa fa-desktop"> Iframe</i>
+                    </li>
                 </ul>
             </section>
         </div>

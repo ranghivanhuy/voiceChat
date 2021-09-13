@@ -57,3 +57,7 @@ button {
     bottom: 55px;
     left: 72%;
 }
+
+.muteMicrophone {
+    width: 55px;
+}

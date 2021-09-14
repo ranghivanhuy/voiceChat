@@ -87,4 +87,10 @@ window.addEventListener('load', () => {
             helpers.singleStreamToggleMute(e);
         }
     });
+
+    document.getElementById('btn-leave').addEventListener('click', () => {
+        sessionStorage.clear();
+        localStorage.clear();
+        window.location.href = '/';
+    });
 });

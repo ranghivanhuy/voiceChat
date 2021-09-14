@@ -4,6 +4,7 @@ var path = require('path');
 let io = require('socket.io')(server);
 let stream = require('./public/js/stream');
 app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use(favicon(path.join(__dirname, 'favicon.ico')));
 var server = require('http').Server(app);
 server.listen(3001)
 

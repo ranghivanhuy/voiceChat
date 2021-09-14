@@ -180,10 +180,10 @@ window.addEventListener('load', () => {
             $('#btn-more').is(":visible")) {
             hiddenMore();
         }
-        if (!$target.closest('#toggle-chat-pane').length &&
-            $('#toggle-chat-pane').is(":visible")) {
-            document.getElementById('chatbox').setAttribute('hidden', true);
-        }
+        // if (!$target.closest('#toggle-chat-pane').length &&
+        //     $('#toggle-chat-pane').is(":visible")) {
+        //     document.getElementById('chatbox').setAttribute('hidden', true);
+        // }
     });
 
 });

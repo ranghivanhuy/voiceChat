@@ -94,4 +94,23 @@ window.addEventListener('load', () => {
         document.querySelector('#video-youtube').setAttribute('hidden', true);
     });
 
+    document.getElementById('btn-more').addEventListener('click', (e) => {
+        e.preventDefault();
+        var hidden = document.querySelector('#more-display').attributes.getNamedItem('hidden');
+        if (hidden == null) {
+            document.getElementById('more-display').setAttribute('hidden', true);
+        } else {
+            document.querySelector('#more-display').attributes.removeNamedItem('hidden');
+        }
+    })
+
+    $(document).click(function (event) {
+        let $target = "";
+        $target = $(event.target);
+        if (!$target.closest('#btn-more').length &&
+            $('#btn-more').is(":visible")) {
+            hiddenMore();
+        }
+    });
+
 });

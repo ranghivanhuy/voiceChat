@@ -12,187 +12,242 @@
     <link rel="stylesheet" href="public/css/chatbox.css" type="text/css">
 </head>
 <body>
-    <div class="container">
-        <canvas id="canvas" width="1500" height="700"></canvas>
-    </div>
-    <div id="video-youtube" hidden>
-        <div class="col-lg-6 float-right">
-            <form id="form-youtube">
-                <div class="form-group col-lg-12">
-                    <input class="form-control url" id="url" name="url" placeholder="Paste YouTube Video URL" />
+    <div class="create-room">
+        <div class="container-fluid" id="room-create">
+            <div class="row">
+                <div class="col-12 h2 mt-5 text-center">Create Room</div>
+            </div>
+            
+            <div class="row mt-2">
+                <div class="col-12 text-center">
+                    <span class="form-text small text-danger" id="err-msg"></span>
                 </div>
-                <div class="form-group text-center">
-                    <button class="btn btn-success col-lg-3" id="show-video">Show Video</button>
-                    <button class="btn btn-dark col-lg-3" id="hide-video">Close</button>
+
+                <div class="col-12 col-md-4 offset-md-4 mb-3">
+                    <label for="room-name">Room Name</label>
+                    <input type="text" id="room-name" class="form-control rounded-0" placeholder="Room Name">
                 </div>
-            </form>
+
+                <div class="col-12 col-md-4 offset-md-4 mb-3">
+                    <label for="your-name">Your Name</label>
+                    <input type="text" id='your-name' class="form-control rounded-0" placeholder="Your Name">
+                </div>
+
+                <div class="col-12 col-md-4 offset-md-4 mb-3">
+                    <button id='create-room' class="btn btn-block rounded-0 btn-info">Create Room</button>
+                </div>
+
+                <div class="col-12 col-md-4 offset-md-4 mb-3" id='room-created'></div>
+            </div>
         </div>
-        <div class="col-lg-6">
-            <div class="embed-responsive embed-responsive-16by9" id="show-iframe" hidden>
-                <iframe class="embed-responsive-item" id="iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
-                </iframe>
+
+        <div class="container-fluid" id='username-set' hidden>
+            <div class="row">
+                <div class="col-12 h4 mt-5 text-center">Your Name</div>
+            </div>
+            
+            <div class="row mt-2">
+                <div class="col-12 text-center">
+                    <span class="form-text small text-danger" id='err-msg-username'></span>
+                </div>
+
+                <div class="col-12 col-md-4 offset-md-4 mb-3">
+                    <label for="username">Your Name</label>
+                    <input type="text" id='username' class="form-control rounded-0" placeholder="Your Name">
+                </div>
+                <input type="hidden" id='roomName' class="form-control rounded-0">
+                <div class="col-12 col-md-4 offset-md-4 mb-3">
+                    <button id='enter-room' class="btn btn-block rounded-0 btn-info">Enter Room</button>
+                </div>
             </div>
         </div>
     </div>
-    <div id="other-page-display" hidden>
-        <div class="col-lg-6 float-right">
-            <form id="form-other-page">
-                <div class="form-group">
-                    <input class="form-control url" id="url-other" name="url-other" placeholder="Paste Other URL page" />
-                </div>
-                <div class="form-group text-center">
-                    <button class="btn btn-success col-lg-3" id="show-page">Show Page</button>
-                    <button class="btn btn-dark col-lg-3" id="hide-page">Close</button>
-                </div>
-            </form>
-        </div>
-        <div class="col-lg-6">
-            <div class="embed-responsive embed-responsive-16by9" id="show-iframe-other" hidden>
-                <iframe class="embed-responsive-item" id="myIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
-            </div>
-        </div>
-    </div>
-    <div id="editor-container" class="float-right" hidden>
-        <div class="toolbar">
-            <ul class="tool-list">
-                <li class="tool">
-                    <button 
-                        type="button" 
-                        data-command='justifyLeft'
-                        class="tool--btn">
-                        <i class=' fas fa-align-left'></i>
-                    </button>
-                </li>
-                <li class="tool">
-                    <button 
-                        type="button" 
-                        data-command='justifyCenter' 
-                        class="tool--btn">
-                        <i class=' fas fa-align-center'></i>
-                    </button>
-                </li>
-                <li class="tool">
-                    <button 
-                        type="button" 
-                        data-command="bold" 
-                        class="tool--btn">
-                        <i class=' fas fa-bold'></i>
-                    </button>
-                </li>
-                <li class="tool">
-                    <button 
-                        type="button" 
-                        data-command="italic"
-                        class="tool--btn">
-                        <i class=' fas fa-italic'></i>
-                    </button>
-                </li>
-                <li class="tool">
-                    <button 
-                        type="button" 
-                        data-command="underline"
-                        class="tool--btn">
-                        <i class=' fas fa-underline'></i>
-                    </button>
-                </li>
-                <li class="tool">
-                    <button 
-                        type="button" 
-                        data-command="insertOrderedList"
-                        class="tool--btn">
-                        <i class=' fas fa-list-ol'></i>
-                    </button>
-                </li>
-                <li class="tool">
-                    <button 
-                        type="button" 
-                        data-command="insertUnorderedList"
-                        class="tool--btn">
-                        <i class=' fas fa-list-ul'></i>
-                    </button>
-                </li>
-                <li class="tool">
-                    <button 
-                        type="button" 
-                        data-command="createlink" 
-                        class="tool--btn">
-                        <i class=' fas fa-link'></i>
-                    </button>
-                </li>
-                <li class="tool">
-                    <button 
-                        type="button" 
-                        data-command="save" 
-                        class="tool--btn" id="save">
-                        <i class="far fa-save"></i>
-                    </button>
-                </li>
-            </ul>
-        </div>
-        <div id="output" contenteditable="true"></div>
-    </div>
-    <div class="container">
+    <div class="main-container" id="main-container" hidden>
         <div class="row">
-            <div class="footer">
-                <ul>
-                    <li>
-                        <button type="button" class="btn btn-primary" id="toggle-chat-pane">
-                            <i class="fa fa-comment"></i>
+            <video class="local-video mirror-mode" id='local' volume='0' autoplay muted></video>
+        </div>
+        <div class="container">
+            <canvas id="canvas" width="1500" height="700"></canvas>
+        </div>
+        <div id="video-youtube" hidden>
+            <div class="col-lg-6 float-right">
+                <form id="form-youtube">
+                    <div class="form-group col-lg-12">
+                        <input class="form-control url" id="url" name="url" placeholder="Paste YouTube Video URL" />
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-success col-lg-3" id="show-video">Show Video</button>
+                        <button class="btn btn-dark col-lg-3" id="hide-video">Close</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <div class="embed-responsive embed-responsive-16by9" id="show-iframe" hidden>
+                    <iframe class="embed-responsive-item" id="iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div id="other-page-display" hidden>
+            <div class="col-lg-6 float-right">
+                <form id="form-other-page">
+                    <div class="form-group">
+                        <input class="form-control url" id="url-other" name="url-other" placeholder="Paste Other URL page" />
+                    </div>
+                    <div class="form-group text-center">
+                        <button class="btn btn-success col-lg-3" id="show-page">Show Page</button>
+                        <button class="btn btn-dark col-lg-3" id="hide-page">Close</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-6">
+                <div class="embed-responsive embed-responsive-16by9" id="show-iframe-other" hidden>
+                    <iframe class="embed-responsive-item" id="myIframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div id="editor-container" class="float-right" hidden>
+            <div class="toolbar">
+                <ul class="tool-list">
+                    <li class="tool">
+                        <button 
+                            type="button" 
+                            data-command='justifyLeft'
+                            class="tool--btn">
+                            <i class=' fas fa-align-left'></i>
                         </button>
                     </li>
-                    <li>
-                        <button type="button" class="btn btn-primary microphone" id="microphone">
-                            <i class="fa fa-microphone" aria-hidden="true"></i>
+                    <li class="tool">
+                        <button 
+                            type="button" 
+                            data-command='justifyCenter' 
+                            class="tool--btn">
+                            <i class=' fas fa-align-center'></i>
                         </button>
-                        <button type="button" class="btn btn-primary muteMicrophone" id="mute-microphone" hidden>
-                            <i class="fas fa-microphone-alt-slash"></i>
-                        </button>
-                        
                     </li>
-                    <li><button type="button" class="btn btn-primary" id="btn-more"><i class="fa fa-list"></i></button></li>
-                    <li>
-                        <button type="button" class="btn btn-danger">
-                            <i class="fas fa-sign-out-alt"></i>
+                    <li class="tool">
+                        <button 
+                            type="button" 
+                            data-command="bold" 
+                            class="tool--btn">
+                            <i class=' fas fa-bold'></i>
+                        </button>
+                    </li>
+                    <li class="tool">
+                        <button 
+                            type="button" 
+                            data-command="italic"
+                            class="tool--btn">
+                            <i class=' fas fa-italic'></i>
+                        </button>
+                    </li>
+                    <li class="tool">
+                        <button 
+                            type="button" 
+                            data-command="underline"
+                            class="tool--btn">
+                            <i class=' fas fa-underline'></i>
+                        </button>
+                    </li>
+                    <li class="tool">
+                        <button 
+                            type="button" 
+                            data-command="insertOrderedList"
+                            class="tool--btn">
+                            <i class=' fas fa-list-ol'></i>
+                        </button>
+                    </li>
+                    <li class="tool">
+                        <button 
+                            type="button" 
+                            data-command="insertUnorderedList"
+                            class="tool--btn">
+                            <i class=' fas fa-list-ul'></i>
+                        </button>
+                    </li>
+                    <li class="tool">
+                        <button 
+                            type="button" 
+                            data-command="createlink" 
+                            class="tool--btn">
+                            <i class=' fas fa-link'></i>
+                        </button>
+                    </li>
+                    <li class="tool">
+                        <button 
+                            type="button" 
+                            data-command="save" 
+                            class="tool--btn" id="save">
+                            <i class="far fa-save"></i>
                         </button>
                     </li>
                 </ul>
             </div>
-            <section class="chatbox" hidden id="chatbox">
-                <header class="chatbox-header">
-                    <i class="fas fa-comment-alt"></i>
-                    <div class="chatbox-header-title">
-                        Chat Message
-                    </div>
-                    <div class="chatbox-header-options" id="close-chat">
-                        <span><i class="fas fa-window-close"></i></span>
-                    </div>
-                </header>
-              
-                <main class="chatbox-chat">
-                    <div class="chat-messages"></div>
-                </main>
-                <input type="text" id="chat-input" class="form-control" placeholder="Enter your message...">
-            </section>
-            <section class="more-display" id="more-display" hidden>
-                <ul class="more-none-flex">
-                    <li>
-                        <i class="fas fa-video"> Record screen</i>
-                    </li>
-                    <li id="share-screen">
-                        <i class="fa fa-desktop"> Share screen</i>
-                    </li>
-                    <li id="watch-youtube">
-                        <i class="fab fa-youtube"> Youtube video</i>
-                    </li>
-                    <li id="editor">
-                        <i class="far fa-edit"> Editor</i>
-                    </li>
-                    <li id="other-page">
-                        <i class="fa fa-desktop"> Iframe</i>
-                    </li>
-                </ul>
-            </section>
+            <div id="output" contenteditable="true"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="footer">
+                    <ul>
+                        <li>
+                            <button type="button" class="btn btn-primary" id="toggle-chat-pane">
+                                <i class="fa fa-comment"></i>
+                            </button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-primary microphone" id="microphone">
+                                <i class="fa fa-microphone" aria-hidden="true"></i>
+                            </button>
+                            <button type="button" class="btn btn-primary muteMicrophone" id="mute-microphone" hidden>
+                                <i class="fas fa-microphone-alt-slash"></i>
+                            </button>
+                            
+                        </li>
+                        <li><button type="button" class="btn btn-primary" id="btn-more"><i class="fa fa-list"></i></button></li>
+                        <li>
+                            <button type="button" class="btn btn-danger">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+                <section class="chatbox" hidden id="chatbox">
+                    <header class="chatbox-header">
+                        <i class="fas fa-comment-alt"></i>
+                        <div class="chatbox-header-title">
+                            Chat Message
+                        </div>
+                        <div class="chatbox-header-options" id="close-chat">
+                            <span><i class="fas fa-window-close"></i></span>
+                        </div>
+                    </header>
+                
+                    <main class="chatbox-chat">
+                        <div class="chat-messages"></div>
+                    </main>
+                    <input type="text" id="chat-input" class="form-control" placeholder="Enter your message...">
+                </section>
+                <section class="more-display" id="more-display" hidden>
+                    <ul class="more-none-flex">
+                        <li>
+                            <i class="fas fa-video"> Record screen</i>
+                        </li>
+                        <li id="share-screen">
+                            <i class="fa fa-desktop"> Share screen</i>
+                        </li>
+                        <li id="watch-youtube">
+                            <i class="fab fa-youtube"> Youtube video</i>
+                        </li>
+                        <li id="editor">
+                            <i class="far fa-edit"> Editor</i>
+                        </li>
+                        <li id="other-page">
+                            <i class="fa fa-desktop"> Iframe</i>
+                        </li>
+                    </ul>
+                </section>
+            </div>
         </div>
     </div>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>

@@ -69,4 +69,29 @@ window.addEventListener('load', () => {
         }
     });
 
+    document.getElementById('watch-youtube').addEventListener('click', (e) => {
+        e.preventDefault();
+        hiddenMore();
+        document.querySelector('#video-youtube').attributes.removeNamedItem('hidden');
+    });
+
+    document.getElementById('show-video').addEventListener('click', (e) => {
+        e.preventDefault();
+        let getURL = document.querySelector('#url').value;
+
+        let newURL = getURL.replace("watch?v=", "embed/");
+        let link = getURL.search('youtube.com');
+        if (link == -1) {
+            alert('You can paste link youtube');
+        } else {
+            document.getElementById('iframe').src = newURL;
+            document.querySelector('#show-iframe').attributes.removeNamedItem('hidden')
+        }
+    });
+
+    document.getElementById('hide-video').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#video-youtube').setAttribute('hidden', true);
+    });
+
 });

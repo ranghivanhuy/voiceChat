@@ -61,3 +61,15 @@ button {
 .muteMicrophone {
     width: 55px;
 }
+
+#show-video {
+    border-radius: unset !important;
+}
+
+#hide-video {
+    border-radius: unset !important;
+}
+
+#video-youtube {
+    
+}

@@ -15,6 +15,25 @@
     <div class="container">
         <canvas id="canvas" width="1500" height="700"></canvas>
     </div>
+    <div id="video-youtube" hidden>
+        <div class="col-lg-6">
+            <form id="form-youtube">
+                <div class="form-group">
+                    <input class="form-control url" id="url" name="url" placeholder="Paste YouTube Video URL" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success col-lg-3" id="show-video">Show Video</button>
+                    <button class="btn btn-dark col-lg-3" id="hide-video">Hide Video</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-12">
+            <div class="embed-responsive embed-responsive-16by9" id="show-iframe" hidden>
+                <iframe class="embed-responsive-item" id="iframe" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="footer">
@@ -99,7 +118,7 @@
                     <li id="share-screen">
                         <i class="fa fa-desktop"> Share screen</i>
                     </li>
-                    <li>
+                    <li id="watch-youtube">
                         <i class="fab fa-youtube"> Youtube video</i>
                     </li>
                     <li>

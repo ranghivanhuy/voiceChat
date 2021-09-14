@@ -90,7 +90,7 @@ function myDown(e) {
 
 
 // handle mouseup events
-function myUp(e) {  
+function myUp(e) {
     // tell the browser we're handling this mouse event
     e.preventDefault();
     e.stopPropagation();
@@ -161,14 +161,3 @@ document.getElementById('close-chat').addEventListener('click', (e) => {
 });
 
 
-$('#btn-more').on('click', () => {
-    let chatElem = document.querySelector('#more-display');
-
-    if (chatElem.classList.contains('more-opened')) {
-        chatElem.setAttribute('hidden', true);
-        chatElem.classList.remove('more-opened');
-    } else {
-        chatElem.attributes.removeNamedItem('hidden');
-        chatElem.classList.add('more-opened');
-    }
-});

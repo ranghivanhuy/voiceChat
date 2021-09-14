@@ -143,21 +143,4 @@ function myMove(e) {
     }
 }
 
-$('#toggle-chat-pane').on('click', () => {
-    let chatElem = document.querySelector('#chatbox');
-
-    if (chatElem.classList.contains('chat-opened')) {
-        chatElem.setAttribute('hidden', true);
-        chatElem.classList.remove('chat-opened');
-    } else {
-        chatElem.attributes.removeNamedItem('hidden');
-        chatElem.classList.add('chat-opened');
-    }
-});
-
-document.getElementById('close-chat').addEventListener('click', (e) => {
-    e.preventDefault();
-    document.querySelector('#chatbox').setAttribute('hidden', true);
-});
-
 

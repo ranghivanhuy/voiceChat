@@ -104,12 +104,31 @@ window.addEventListener('load', () => {
         }
     })
 
+    document.getElementById('toggle-chat-pane').addEventListener('click', (e) => {
+        e.preventDefault();
+        var hidden = document.querySelector('#chatbox').attributes.getNamedItem('hidden');
+        if (hidden == null) {
+            document.getElementById('chatbox').setAttribute('hidden', true);
+        } else {
+            document.querySelector('#chatbox').attributes.removeNamedItem('hidden');
+        }
+    })
+
+    document.getElementById('close-chat').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#chatbox').setAttribute('hidden', true);
+    });
+
     $(document).click(function (event) {
         let $target = "";
         $target = $(event.target);
         if (!$target.closest('#btn-more').length &&
             $('#btn-more').is(":visible")) {
             hiddenMore();
+        }
+        if (!$target.closest('#toggle-chat-pane').length &&
+            $('#toggle-chat-pane').is(":visible")) {
+            document.getElementById('chatbox').setAttribute('hidden', true);
         }
     });
 

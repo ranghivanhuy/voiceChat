@@ -138,6 +138,31 @@ window.addEventListener('load', () => {
         document.querySelector('#other-page-display').setAttribute('hidden', true);
     });
 
+    document.getElementById('editor').addEventListener('click', () => {
+        let getHtml = localStorage.getItem('output');
+        document.getElementById('output').innerHTML = getHtml;
+        document.querySelector('#editor-container').attributes.removeNamedItem('hidden')
+        let output = document.getElementById('output');
+        let buttons = document.getElementsByClassName('tool--btn');
+        let buttonSave = document.getElementById('save');
+        for (let btn of buttons) {
+            btn.addEventListener('click', () => {
+                let cmd = btn.dataset['command'];
+                if (cmd === 'createlink') {
+                    let url = prompt("Enter the link here: ", "http:\/\/");
+                    document.execCommand(cmd, false, url);
+                } else {
+                    document.execCommand(cmd, false, null);
+                }
+            })
+        }
+        buttonSave.addEventListener('click', () => {
+            let html = document.getElementById('output').innerHTML;
+            localStorage.setItem('output', html);
+            document.querySelector('#editor-container').setAttribute('hidden', true);
+        })
+    });
+
     $(document).click(function (event) {
         let $target = "";
         $target = $(event.target);

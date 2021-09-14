@@ -65,3 +65,28 @@ button {
 #show-video, #hide-video, #show-page, #hide-page {
     border-radius: unset !important;
 }
+
+#output {
+	height: 400px; 
+    background-color: white;
+	margin: 1rem;
+	padding: 1rem;
+    width: 735px;
+}
+
+.tool-list {
+	display: flex;
+	flex-flow: row nowrap;
+	list-style: none;
+	padding: 0;
+	margin: 1rem;
+	overflow: hidden;
+	border-radius: 10px;
+}
+
+.tool--btn {
+	display: block;
+	border: none;
+	padding: .5rem;
+	font-size: 20px;
+}

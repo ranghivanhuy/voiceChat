@@ -53,6 +53,85 @@
             </div>
         </div>
     </div>
+    <div id="editor-container" class="float-right" hidden>
+        <div class="toolbar">
+            <ul class="tool-list">
+                <li class="tool">
+                    <button 
+                        type="button" 
+                        data-command='justifyLeft'
+                        class="tool--btn">
+                        <i class=' fas fa-align-left'></i>
+                    </button>
+                </li>
+                <li class="tool">
+                    <button 
+                        type="button" 
+                        data-command='justifyCenter' 
+                        class="tool--btn">
+                        <i class=' fas fa-align-center'></i>
+                    </button>
+                </li>
+                <li class="tool">
+                    <button 
+                        type="button" 
+                        data-command="bold" 
+                        class="tool--btn">
+                        <i class=' fas fa-bold'></i>
+                    </button>
+                </li>
+                <li class="tool">
+                    <button 
+                        type="button" 
+                        data-command="italic"
+                        class="tool--btn">
+                        <i class=' fas fa-italic'></i>
+                    </button>
+                </li>
+                <li class="tool">
+                    <button 
+                        type="button" 
+                        data-command="underline"
+                        class="tool--btn">
+                        <i class=' fas fa-underline'></i>
+                    </button>
+                </li>
+                <li class="tool">
+                    <button 
+                        type="button" 
+                        data-command="insertOrderedList"
+                        class="tool--btn">
+                        <i class=' fas fa-list-ol'></i>
+                    </button>
+                </li>
+                <li class="tool">
+                    <button 
+                        type="button" 
+                        data-command="insertUnorderedList"
+                        class="tool--btn">
+                        <i class=' fas fa-list-ul'></i>
+                    </button>
+                </li>
+                <li class="tool">
+                    <button 
+                        type="button" 
+                        data-command="createlink" 
+                        class="tool--btn">
+                        <i class=' fas fa-link'></i>
+                    </button>
+                </li>
+                <li class="tool">
+                    <button 
+                        type="button" 
+                        data-command="save" 
+                        class="tool--btn" id="save">
+                        <i class="far fa-save"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+        <div id="output" contenteditable="true"></div>
+    </div>
     <div class="container">
         <div class="row">
             <div class="footer">
@@ -106,7 +185,7 @@
                     <li id="watch-youtube">
                         <i class="fab fa-youtube"> Youtube video</i>
                     </li>
-                    <li>
+                    <li id="editor">
                         <i class="far fa-edit"> Editor</i>
                     </li>
                     <li id="other-page">

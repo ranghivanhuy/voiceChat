@@ -52,11 +52,14 @@ window.addEventListener('load', () => {
             console.error(e);
         });
     }
+    function hiddenMore() {
+        document.getElementById('more-display').setAttribute('hidden', true);
+    }
 
     //When user clicks the 'Share screen' button
     document.getElementById('share-screen').addEventListener('click', (e) => {
         e.preventDefault();
-        document.getElementById('more-display').setAttribute('hidden', true);
+        hiddenMore();
         if (screen && screen.getVideoTracks().length && screen.getVideoTracks()[0].readyState != 'ended') {
             stopSharingScreen();
         }

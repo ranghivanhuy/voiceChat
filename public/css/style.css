@@ -62,14 +62,6 @@ button {
     width: 55px;
 }
 
-#show-video {
+#show-video, #hide-video, #show-page, #hide-page {
     border-radius: unset !important;
-}
-
-#hide-video {
-    border-radius: unset !important;
-}
-
-#video-youtube {
-    
 }

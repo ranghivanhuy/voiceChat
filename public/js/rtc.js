@@ -119,6 +119,25 @@ window.addEventListener('load', () => {
         document.querySelector('#chatbox').setAttribute('hidden', true);
     });
 
+    // Paste link other page
+    document.getElementById('other-page').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#other-page-display').attributes.removeNamedItem('hidden');
+    });
+
+    document.getElementById('show-page').addEventListener('click', (e) => {
+        e.preventDefault();
+        let getURL = document.querySelector('#url-other').value;
+        let newURL = getURL.replace("watch?v=", "embed/");
+        document.getElementById('myIframe').src = newURL;
+        document.querySelector('#show-iframe-other').attributes.removeNamedItem('hidden')
+    });
+
+    document.getElementById('hide-page').addEventListener('click', (e) => {
+        e.preventDefault();
+        document.querySelector('#other-page-display').setAttribute('hidden', true);
+    });
+
     $(document).click(function (event) {
         let $target = "";
         $target = $(event.target);

@@ -102,7 +102,6 @@ function myUp(e) {
     for (var i = 0; i < rects.length; i++) {
         rects[i].isDragging = false;
     }
-    console.log(mx + ", " + my);
 }
 
 
@@ -154,6 +153,11 @@ $('#toggle-chat-pane').on('click', () => {
         chatElem.attributes.removeNamedItem('hidden');
         chatElem.classList.add('chat-opened');
     }
+});
+
+document.getElementById('close-chat').addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('#chatbox').setAttribute('hidden', true);
 });
 
 

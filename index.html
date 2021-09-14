@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build application with NodeJS</title>
+    <title>A Voice Chat Application</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -65,8 +65,8 @@
                     <div class="chatbox-header-title">
                         <i class="fas fa-comment-alt"></i> voiceChat
                     </div>
-                    <div class="chatbox-header-options">
-                        <span><i class="fas fa-cog"></i></span>
+                    <div class="chatbox-header-options" id="close-chat">
+                        <span><i class="fas fa-window-close"></i></span>
                     </div>
                 </header>
               
@@ -138,5 +138,7 @@
     <script src='https://cdn.rawgit.com/yahoo/xss-filters/master/dist/xss-filters.js'></script>
     <script src="public/js/main.js"></script>
     <script type='module' src="public/js/rtc.js"></script>
+    <script type='module' src="public/js/event.js"></script>
+    <script src="public/js/autolink.js"></script>
 </body>
 </html>

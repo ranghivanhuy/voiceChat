@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Voice Chat Application</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link rel="stylesheet" href="public/css/style.css" type="text/css">
@@ -186,6 +189,29 @@
             </div>
             <div id="output" contenteditable="true"></div>
         </div>
+        <div class="modal" id="myModal" hidden>
+            <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">Change UserName</h4>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                <input class="form-control" type="text" placeholder="Change name" id="change">
+                </div>
+                
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger modal-button" style="width:40%" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-success modal-button" id="save_name" style="width:40%" data-dismiss="modal">Save</button>
+                </div>
+                
+            </div>
+            </div>
+        </div>
         <div class="container">
             <div class="row">
                 <div class="footer">
@@ -230,6 +256,9 @@
                 </section>
                 <section class="more-display" id="more-display" hidden>
                     <ul class="more-none-flex">
+                        <li id="change-user" data-toggle="modal" data-target="#myModal">
+                            <i class="fa fa-user"> UserName</i>
+                        </li>
                         <li>
                             <i class="fas fa-video"> Record screen</i>
                         </li>
@@ -246,6 +275,7 @@
                             <i class="fa fa-desktop"> Iframe</i>
                         </li>
                     </ul>
+                    
                 </section>
             </div>
         </div>

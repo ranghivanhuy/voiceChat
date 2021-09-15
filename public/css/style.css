@@ -62,7 +62,7 @@ button {
     width: 55px;
 }
 
-#show-video, #hide-video, #show-page, #hide-page {
+#show-video, #hide-video, #show-page, #hide-page, .modal-button {
     border-radius: unset !important;
 }
 

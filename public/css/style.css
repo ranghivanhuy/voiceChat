@@ -96,3 +96,7 @@ button {
     bottom: 0;
     width: 10%;
 }
+
+#editor-container {
+    margin-top: -155px;
+}

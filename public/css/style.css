@@ -90,3 +90,7 @@ button {
 	padding: .5rem;
 	font-size: 20px;
 }
+
+#editor-container {
+    margin-top: -155px;
+}

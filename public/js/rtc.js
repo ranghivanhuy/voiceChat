@@ -175,6 +175,21 @@ window.addEventListener('load', () => {
         })
     });
 
+    document.getElementById('change-user').addEventListener('click', (e) => {
+        e.preventDefault();
+        let userName = sessionStorage.getItem('username');
+        document.getElementById('change').value = userName;
+        document.querySelector('#myModal').attributes.removeNamedItem('hidden')
+    });
+
+    document.getElementById('save_name').addEventListener('click', (e) => {
+        e.preventDefault();
+        let userName = document.getElementById('change').value;
+        sessionStorage.setItem('username', userName);
+        document.querySelector('#myModal').setAttribute('hidden', true);
+    });
+
+
     $(document).click(function (event) {
         let $target = "";
         $target = $(event.target);

@@ -90,3 +90,9 @@ button {
 	padding: .5rem;
 	font-size: 20px;
 }
+
+#local {
+    position: absolute;
+    bottom: 0;
+    width: 10%;
+}

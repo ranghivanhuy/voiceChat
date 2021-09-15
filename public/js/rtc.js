@@ -400,14 +400,6 @@ window.addEventListener('load', () => {
             }
         })
 
-<<<<<<< HEAD
-=======
-        document.getElementById('close-chat').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.querySelector('#chatbox').setAttribute('hidden', true);
-        });
-
->>>>>>> 049eb287f70840e495f7d107b2d57356a610332a
         // Paste link other page
         document.getElementById('other-page').addEventListener('click', (e) => {
             e.preventDefault();

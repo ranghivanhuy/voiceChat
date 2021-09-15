@@ -2,12 +2,14 @@ import h from './helpers.js';
 window.addEventListener('load', () => {
 
     const room = h.getQString(location.href, 'room');
-    console.log(room);
     const username = sessionStorage.getItem('username');
 
-    if(room) {
+    if(!room) {
+        document.querySelector('#room-create').attributes.removeNamedItem('hidden');
+    } else if(!username) {
+        document.querySelector('#username-set').attributes.removeNamedItem('hidden');
+    } else {
         document.querySelector('body').setAttribute('class', 'background-room');
-        document.querySelector('.create-room').setAttribute('hidden', true);
         document.querySelector('#main-container').attributes.removeNamedItem('hidden');
     }
 

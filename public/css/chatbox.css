@@ -78,3 +78,9 @@
 .header-chatbox {
     background: aliceblue;
 }
+
+.new-chat {
+    position: absolute;
+    top: 3px;
+    left: 98px;
+}

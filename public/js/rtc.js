@@ -1,13 +1,15 @@
 import h from './helpers.js';
 window.addEventListener('load', () => {
-
+    h.toggleModal('recording-options-modal', false);
     const room = h.getQString(location.href, 'room');
     const username = sessionStorage.getItem('username');
 
-    if(!room) {
+    if (!room) {
+        document.querySelector('.move').setAttribute('hidden', 'true');
         document.querySelector('#room-create').attributes.removeNamedItem('hidden');
-    } else if(!username) {
+    } else if (!username) {
         document.querySelector('#username-set').attributes.removeNamedItem('hidden');
+        document.querySelector('.move').setAttribute('hidden', 'true');
     } else {
         document.querySelector('body').setAttribute('class', 'background-room');
         document.querySelector('#main-container').attributes.removeNamedItem('hidden');
@@ -296,6 +298,49 @@ window.addEventListener('load', () => {
         function hiddenMore() {
             document.getElementById('more-display').setAttribute('hidden', true);
         }
+        function startRecording(stream) {
+            mediaRecorder = new MediaRecorder(stream, {
+                mimeType: 'video/webm;codecs=vp9'
+            });
+
+            mediaRecorder.start(1000);
+            toggleRecordingIcons(true);
+
+            mediaRecorder.ondataavailable = function (e) {
+                recordedStream.push(e.data);
+            };
+
+            mediaRecorder.onstop = function () {
+                toggleRecordingIcons(false);
+
+                h.saveRecordedStream(recordedStream, username);
+
+                setTimeout(() => {
+                    recordedStream = [];
+                }, 3000);
+            };
+
+            mediaRecorder.onerror = function (e) {
+                console.error(e);
+            };
+        }
+
+        function toggleRecordingIcons(isRecording) {
+            let e = document.getElementById('record');
+
+            if (isRecording) {
+                e.setAttribute('title', 'Stop recording');
+                e.children[0].classList.add('text-danger');
+                e.children[0].classList.remove('text-white');
+            }
+
+            else {
+                e.setAttribute('title', 'Record');
+                e.children[0].classList.add('text-white');
+                e.children[0].classList.remove('text-danger');
+            }
+        }
+
 
         //When user clicks the 'Share screen' button
         document.getElementById('share-screen').addEventListener('click', (e) => {
@@ -355,6 +400,14 @@ window.addEventListener('load', () => {
             }
         })
 
+<<<<<<< HEAD
+=======
+        document.getElementById('close-chat').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#chatbox').setAttribute('hidden', true);
+        });
+
+>>>>>>> 049eb287f70840e495f7d107b2d57356a610332a
         // Paste link other page
         document.getElementById('other-page').addEventListener('click', (e) => {
             e.preventDefault();
@@ -413,6 +466,56 @@ window.addEventListener('load', () => {
             document.querySelector('#myModal').setAttribute('hidden', true);
         });
 
+        document.getElementById('record').addEventListener('click', (e) => {
+            /**
+             * Ask user what they want to record.
+             * Get the stream based on selection and start recording
+             */
+
+            if (!mediaRecorder || mediaRecorder.state == 'inactive') {
+                h.toggleModal('recording-options-modal', true);
+            }
+
+            else if (mediaRecorder.state == 'paused') {
+                mediaRecorder.resume();
+            }
+
+            else if (mediaRecorder.state == 'recording') {
+                mediaRecorder.stop();
+            }
+        });
+        document.getElementById('record-screen').addEventListener('click', () => {
+            h.toggleModal('recording-options-modal', false);
+
+            if (screen && screen.getVideoTracks().length) {
+                startRecording(screen);
+            }
+
+            else {
+                h.shareScreen().then((screenStream) => {
+                    startRecording(screenStream);
+                }).catch(() => { });
+            }
+        });
+
+        //When user choose to record own video
+        document.getElementById('record-video').addEventListener('click', () => {
+            h.toggleModal('recording-options-modal', false);
+
+            if (myStream && myStream.getTracks().length) {
+                startRecording(myStream);
+            }
+
+            else {
+                h.getUserFullMedia().then((videoStream) => {
+                    startRecording(videoStream);
+                }).catch(() => { });
+            }
+        });
+
+        document.getElementById('closeModal').addEventListener('click', () => {
+            h.toggleModal('recording-options-modal', false);
+        })
 
         $(document).click(function (event) {
             let $target = "";
@@ -426,6 +529,5 @@ window.addEventListener('load', () => {
             //     document.getElementById('chatbox').setAttribute('hidden', true);
             // }
         });
-        
     }
 });

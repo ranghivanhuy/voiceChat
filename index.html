@@ -221,7 +221,7 @@
                     <ul>
                         <li>
                             <button type="button" class="btn btn-primary" id="toggle-chat-pane">
-                                <i class="fa fa-comment"></i>
+                                <i class="fa fa-comment"></i><span class="badge badge-danger very-small font-weight-lighter" id='new-chat-notification' hidden>New</span>
                             </button>
                         </li>
                         <li>
@@ -242,20 +242,19 @@
                     </ul>
                 </div>
                 <section class="chatbox" hidden id="chatbox">
-                    <header class="chatbox-header">
-                        <i class="fas fa-comment-alt"></i>
-                        <div class="chatbox-header-title">
-                            Chat Message
+                    <div class="col-md-12" id='chat-pane'>
+                        <div class="row header-chatbox">
+                            <div class="col-12 text-center h4 mb-3 chat-header">
+                                Chat Message
+                            </div>
                         </div>
-                        <div class="chatbox-header-options" id="close-chat">
-                            <span><i class="fas fa-window-close"></i></span>
+    
+                        <div id="chat-messages"></div>
+    
+                        <div class="row">
+                            <input type="text" id="chat-input" class="form-control" placeholder="Enter your message...">
                         </div>
-                    </header>
-                
-                    <main class="chatbox-chat">
-                        <div class="chat-messages"></div>
-                    </main>
-                    <input type="text" id="chat-input" class="form-control" placeholder="Enter your message...">
+                    </div>
                 </section>
                 <section class="more-display" id="more-display" hidden>
                     <ul class="more-none-flex">

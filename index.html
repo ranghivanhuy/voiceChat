@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="public/css/chatbox.css" type="text/css">
 </head>
 <body>
+    <div class="container move">
+        <canvas id="canvas" width="1500" height="700"></canvas>
+    </div>
     <div class="create-room">
         <div class="container-fluid" id="room-create" hidden>
             <div class="row">
@@ -72,8 +75,27 @@
         <div class="col-md-12 main" id='main-section'>                    
             <div class="row mt-2 mb-2" id='videos'></div>
         </div>
-        <div class="container">
-            <canvas id="canvas" width="1500" height="700"></canvas>
+        <div class="custom-modal" id='recording-options-modal'>
+            <div class="custom-modal-content col-md-10">
+                <div class="row text-center">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-2 mb-2 mr-2 btn btn-success" id='record-video'>
+                        <span class="record-option">Record camera</span>
+                    </div>
+                    <div class="col-md-2 mb-2 btn btn-danger" id='record-screen'>
+                        <span class="record-option">Record screen</span>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-5"></div>
+                    <div class="col-md-2 text-center">
+                        <button class="btn btn-dark" id='closeModal'>Close</button>
+                    </div>
+                    <div class="col-md-5"></div>
+                </div>
+            </div>
         </div>
         <div id="video-youtube" hidden>
             <div class="col-lg-6 float-right">
@@ -262,7 +284,7 @@
                         <li id="change-user" data-toggle="modal" data-target="#myModal">
                             <i class="fa fa-user"> UserName</i>
                         </li>
-                        <li>
+                        <li id="record">
                             <i class="fas fa-video"> Record screen</i>
                         </li>
                         <li id="share-screen">

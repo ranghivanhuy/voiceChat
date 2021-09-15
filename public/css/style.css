@@ -62,7 +62,7 @@ button {
     width: 55px;
 }
 
-#show-video, #hide-video, #show-page, #hide-page, .modal-button {
+#show-video, #hide-video, #show-page, #hide-page, .modal-button, #closeModal {
     border-radius: unset !important;
 }
 
@@ -99,4 +99,8 @@ button {
 
 #editor-container {
     margin-top: -155px;
+}
+
+#recording-options-modal {
+    margin-top: 20px;
 }

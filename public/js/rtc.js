@@ -261,19 +261,35 @@ window.addEventListener('load', () => {
 
         document.getElementById('microphone').addEventListener('click', (e) => {
             e.preventDefault();
-            document.querySelector('#microphone').setAttribute('hidden', true);
-            document.querySelector('#mute-microphone').attributes.removeNamedItem('hidden');
-            myStream.getAudioTracks()[0].enabled = true;
+
+            let elem = document.getElementById('microphone-icon');
+
+            if (myStream.getAudioTracks()[0].enabled) {
+                e.target.classList.remove('fa-microphone');
+                e.target.classList.add('fa-microphone-alt-slash');
+                elem.setAttribute('title', 'Unmute');
+
+                myStream.getAudioTracks()[0].enabled = false;
+            }
+
+            else {
+                e.target.classList.remove('fa-microphone-alt-slash');
+                e.target.classList.add('fa-microphone');
+                elem.setAttribute('title', 'Mute');
+
+                myStream.getAudioTracks()[0].enabled = true;
+            }
+
             broadcastNewTracks(myStream, 'audio');
         });
 
-        document.getElementById('mute-microphone').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.querySelector('#mute-microphone').setAttribute('hidden', true);
-            document.querySelector('#microphone').attributes.removeNamedItem('hidden');
-            myStream.getAudioTracks()[0].enabled = false;
-            broadcastNewTracks(myStream, 'audio');
-        });
+        // document.getElementById('mute-microphone').addEventListener('click', (e) => {
+        //     e.preventDefault();
+        //     document.querySelector('#mute-microphone').setAttribute('hidden', true);
+        //     document.querySelector('#microphone').attributes.removeNamedItem('hidden');
+        //     myStream.getAudioTracks()[0].enabled = false;
+        //     broadcastNewTracks(myStream, 'audio');
+        // });
 
         function shareScreen() {
             h.shareScreen().then((stream) => {

@@ -245,6 +245,18 @@ window.addEventListener('load', () => {
             };
         }
 
+        //Chat textarea
+        document.getElementById('chat-input').addEventListener('keypress', (e) => {
+            if (e.which === 13 && (e.target.value.trim())) {
+                e.preventDefault();
+                sendMsg(e.target.value);
+
+                setTimeout(() => {
+                    e.target.value = '';
+                }, 50);
+            }
+        });
+
         var screen = '';
 
         document.getElementById('microphone').addEventListener('click', (e) => {
@@ -262,6 +274,7 @@ window.addEventListener('load', () => {
             myStream.getAudioTracks()[0].enabled = false;
             broadcastNewTracks(myStream, 'audio');
         });
+
         function shareScreen() {
             h.shareScreen().then((stream) => {
                 // h.toggleShareIcons(true);
@@ -345,6 +358,8 @@ window.addEventListener('load', () => {
                 e.children[0].classList.remove('text-danger');
             }
         }
+
+
         //When user clicks the 'Share screen' button
         document.getElementById('share-screen').addEventListener('click', (e) => {
             e.preventDefault();
@@ -402,11 +417,6 @@ window.addEventListener('load', () => {
                 document.querySelector('#chatbox').attributes.removeNamedItem('hidden');
             }
         })
-
-        document.getElementById('close-chat').addEventListener('click', (e) => {
-            e.preventDefault();
-            document.querySelector('#chatbox').setAttribute('hidden', true);
-        });
 
         // Paste link other page
         document.getElementById('other-page').addEventListener('click', (e) => {
@@ -517,7 +527,6 @@ window.addEventListener('load', () => {
             h.toggleModal('recording-options-modal', false);
         })
 
-
         $(document).click(function (event) {
             let $target = "";
             $target = $(event.target);
@@ -530,6 +539,5 @@ window.addEventListener('load', () => {
             //     document.getElementById('chatbox').setAttribute('hidden', true);
             // }
         });
-
     }
 });

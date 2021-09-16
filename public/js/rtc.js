@@ -104,6 +104,20 @@ window.addEventListener('load', () => {
             });
         }
 
+        function broadcastNewTracks(stream, type, mirrorMode = true) {
+            h.setLocalStream(stream, mirrorMode);
+
+            let track = type == 'audio' ? stream.getAudioTracks()[0] : stream.getVideoTracks()[0];
+
+            for (let p in pc) {
+                let pName = pc[p];
+
+                if (typeof pc[pName] == 'object') {
+                    h.replaceTrack(track, pc[pName]);
+                }
+            }
+        }
+
 
         function sendMsg(msg) {
             let regetUsername = sessionStorage.getItem('username');
@@ -249,12 +263,16 @@ window.addEventListener('load', () => {
             e.preventDefault();
             document.querySelector('#microphone').setAttribute('hidden', true);
             document.querySelector('#mute-microphone').attributes.removeNamedItem('hidden');
+            myStream.getAudioTracks()[0].enabled = true;
+            broadcastNewTracks(myStream, 'audio');
         });
 
         document.getElementById('mute-microphone').addEventListener('click', (e) => {
             e.preventDefault();
             document.querySelector('#mute-microphone').setAttribute('hidden', true);
             document.querySelector('#microphone').attributes.removeNamedItem('hidden');
+            myStream.getAudioTracks()[0].enabled = false;
+            broadcastNewTracks(myStream, 'audio');
         });
 
         function shareScreen() {

@@ -97,7 +97,8 @@ button {
 }
 
 #editor-container {
-    margin-top: -155px;
+    position: absolute;
+    right: 5px;
 }
 
 #recording-options-modal {

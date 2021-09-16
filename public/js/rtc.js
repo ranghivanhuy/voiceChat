@@ -265,16 +265,16 @@ window.addEventListener('load', () => {
             let elem = document.getElementById('microphone-icon');
 
             if (myStream.getAudioTracks()[0].enabled) {
-                e.target.classList.remove('fa-microphone');
-                e.target.classList.add('fa-microphone-alt-slash');
+                elem.classList.remove('fa-microphone');
+                elem.classList.add('fa-microphone-alt-slash');
                 elem.setAttribute('title', 'Unmute');
 
                 myStream.getAudioTracks()[0].enabled = false;
             }
 
             else {
-                e.target.classList.remove('fa-microphone-alt-slash');
-                e.target.classList.add('fa-microphone');
+                elem.classList.remove('fa-microphone-alt-slash');
+                elem.classList.add('fa-microphone');
                 elem.setAttribute('title', 'Mute');
 
                 myStream.getAudioTracks()[0].enabled = true;

@@ -266,14 +266,14 @@ window.addEventListener('load', () => {
 
             if (myStream.getAudioTracks()[0].enabled) {
                 elem.classList.remove('fa-microphone');
-                elem.classList.add('fa-microphone-alt-slash');
+                elem.classList.add('fa-microphone-alt-slash', 'text-danger');
                 elem.setAttribute('title', 'Unmute');
 
                 myStream.getAudioTracks()[0].enabled = false;
             }
 
             else {
-                elem.classList.remove('fa-microphone-alt-slash');
+                elem.classList.remove('fa-microphone-alt-slash', 'text-danger');
                 elem.classList.add('fa-microphone');
                 elem.setAttribute('title', 'Mute');
 
